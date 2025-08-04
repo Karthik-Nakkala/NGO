@@ -18,15 +18,22 @@
       font-family: 'Orbitron', sans-serif;
     }
 
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 40px;
-      background: linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.74)); /* Transparent gradient */
+  header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  height: 80px;
+  padding: 20px 40px;
 
-      color: white;
-    }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.74));
+  color: white;
+}
 
     .logo-title {
       display: flex;
@@ -90,20 +97,64 @@
       background-color: #ff3366;
     }
     .hero-section {
+  padding-top: calc(80px + 2rem); /* Prevent overlap with fixed header */
   background: url('public/images/bgimg2.png') center/cover no-repeat;
   min-height: 100vh; /* Full viewport height */
   width: 100%;
   image-rendering: crisp-edges;
+  position: relative;
 }
 .info-box {
-  background-color: rgba(227, 32, 58, 0.86); /* 70% transparent black */
+  position: absolute;
+  bottom: 40%;     /* Moves it up from the bottom */
+  left: 10%;     /* Moves it in from the right */
+  background-color: rgba(0, 0, 0, 0.7); /* Optional: switch to black transparent */
   color: white;
   padding: 30px;
   max-width: 400px;
-  margin-right: 60px; /* Space from the right edge */
   border-radius: 10px;
   font-family: 'Orbitron', sans-serif;
 }
+.about-boxes {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 40px 20px;
+  margin-top: -200px; /* Pull boxes upward over the image */
+  position: relative;
+  z-index: 2;
+}
+
+
+.box {
+  flex: 1;
+  max-width: 300px;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+
+.box:hover {
+  transform: translateY(-5px);
+}
+
+.box h3 {
+  margin-bottom: 15px;
+  color: #2c3e50;
+  font-size: 1.3em;
+}
+
+.box p {
+  font-size: 0.95em;
+  line-height: 1.5;
+  color: #555;
+}
+
 
 
 
@@ -135,10 +186,27 @@
   <section class="hero-section">
      <div class="info-box">
     <h2>Empowering Young Minds</h2>
-    <p>Basthi Ki Pathshala is dedicated to nurturing talent and providing education to underserved communities.</p>
+    <p>Basthi Ki Pathshala is dedicated to nurturing talent and providing education to underserved communities. . . .</p>
+    <button class="donate-btn" >Read More</button>
   </div>
 
   </section>
+  <section class="about-boxes">
+  <div class="box">
+    <h3>📚 Education Access</h3>
+    <p>We provide free learning resources, tutoring, and weekend classes to children in underserved communities, helping bridge the education gap.</p>
+  </div>
+
+  <div class="box">
+    <h3>🤝 Mentorship & Support</h3>
+    <p>Our volunteers mentor students, guide career paths, and offer emotional support to help them grow with confidence and purpose.</p>
+  </div>
+
+  <div class="box">
+    <h3>🌱 Community Empowerment</h3>
+    <p>We collaborate with local families and leaders to create sustainable learning environments and promote long-term community development.</p>
+  </div>
+</section>
 
 </body>
 </html>
